@@ -21,16 +21,8 @@ public class SouraService {
         return souraRepository.findById(id);
     }
 
-    public Iterable<Soura> getSouras() {
+    public Iterable<Soura> getSouwar() {
         return souraRepository.findAll();
     }
 
-    public void deleteSoura(final Long id) {
-        souraRepository.deleteById(id);
-    }
-
-    public Soura saveSoura(Soura Soura) {
-        Soura savedSoura = souraRepository.save(Soura);
-        return savedSoura;
-    }
 }

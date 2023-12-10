@@ -1,15 +1,15 @@
 package com.laaribi.revisionquran.api.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.laaribi.revisionquran.api.model.Soura;
 import com.laaribi.revisionquran.api.service.SouraService;
+
 
 
 @RestController
@@ -19,13 +19,20 @@ public class SouraController {
     private SouraService souraService;
 
     /**
-    * Read - Get all souras
+    * Read - Get all souwar
     * @return - An Iterable object of Soura full filled
     */
     @GetMapping("/souras")
     public Iterable<Soura> getSouras() {
-        return souraService.getSouras();
+        return souraService.getSouwar();
     }
 
 
+    /**
+     * Read - get soura by id
+     */
+    @GetMapping("/soura/{id}")
+    public Optional<Soura> getSoura(@PathVariable Long id) {
+        return souraService.getSoura(id);
+    }
 }
