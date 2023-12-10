@@ -4,7 +4,7 @@ INSERT INTO UTILISATEUR (first_name, last_name, mail, password) VALUES
   ('Ahmed Yahya', 'LAARIBI', 'Yahya@mail.com', 'Yahya');
 
 INSERT INTO SOURA (name) VALUES
-('الفاتحة'),
+('الفَاتِحَة'),
 ('البَقَرَة'),
 ('آل عِمرَان'),
 ('النِّسَاء'),
@@ -117,5 +117,4 @@ INSERT INTO SOURA (name) VALUES
 ('المَسَد'),
 ('الإخْلَاص'),
 ('الفَلَق'),
-('النَّاس'),
-('test');
+('النَّاس');
