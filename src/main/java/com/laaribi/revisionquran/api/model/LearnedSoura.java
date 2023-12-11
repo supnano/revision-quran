@@ -2,6 +2,8 @@ package com.laaribi.revisionquran.api.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -14,7 +16,19 @@ import lombok.Data;
 @Entity
 public class LearnedSoura {
 
+    public LearnedSoura(Utilisateur utilisateur, Soura soura) {
+        this.utilisateur=utilisateur;
+        this.soura=soura;
+        LearnedSouraKey learnedSouraKey = new LearnedSouraKey(utilisateur.getId(), soura.getId());
+        this.id=learnedSouraKey;
+    }
+
+    public LearnedSoura(){
+
+    }
+
     @EmbeddedId
+    @JsonIgnore
     LearnedSouraKey id;
 
     @ManyToOne
