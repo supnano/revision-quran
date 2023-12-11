@@ -12,7 +12,7 @@
 	<artifactId>revision-quran</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>revision quran</name>
-	<description>Demo project forApplication pour suivre la révision du quran Spring Boot</description>
+	<description>Demo project forApplication pour suivre la révision du quran Spring Boot </description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
