@@ -11,7 +11,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import lombok.Data;
-
+/**
+ * Learned soura entity
+ */
 @Data
 @Entity
 public class LearnedSoura {
