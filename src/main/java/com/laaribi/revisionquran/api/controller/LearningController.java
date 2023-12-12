@@ -13,6 +13,7 @@ import com.laaribi.revisionquran.api.model.LearnedSoura;
 import com.laaribi.revisionquran.api.model.LearnedSouraKey;
 import com.laaribi.revisionquran.api.model.Soura;
 import com.laaribi.revisionquran.api.model.Utilisateur;
+import com.laaribi.revisionquran.api.model.UtilisateurLearnedSoura;
 import com.laaribi.revisionquran.api.service.LearnedSouraService;
 import com.laaribi.revisionquran.api.service.SouraService;
 import com.laaribi.revisionquran.api.service.UtilisateurService;
@@ -33,15 +34,16 @@ public class LearningController {
     private SouraService souraService;
 
     @GetMapping("/learning/utilisateur/{id}")
-    public Iterable<Soura> getUtilisateur(@PathVariable Long id) {
-        List<Soura> souwar = new ArrayList<Soura>();
+    public Iterable<UtilisateurLearnedSoura> getUtilisateur(@PathVariable Long id) {
+        List<UtilisateurLearnedSoura> utilisateurLearnedSoura = new ArrayList<UtilisateurLearnedSoura>();
         Optional<Utilisateur> optionalUtilisateur = utilisateurService.getUtilisateur(id);
         // test optional is present befor get souwar
         Iterable<LearnedSoura> learnedSouwar = learnedSouraService.getSouwar(optionalUtilisateur.get());
         for (LearnedSoura learnedSoura : learnedSouwar) {
-            souwar.add(learnedSoura.getSoura());
+            Soura soura = learnedSoura.getSoura();
+            utilisateurLearnedSoura.add(new UtilisateurLearnedSoura(soura.getId(),soura.getName(),soura.getLatinName(),learnedSoura.getLastDateRecitation()));
         }
-        return souwar;
+        return utilisateurLearnedSoura;
     }
 
     @PostMapping("/learning/learned-soura")
